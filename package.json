@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "@types/csv-parse": "^1.2.2",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.11",
+    "@types/multer": "^1.4.11",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-node-dev": "^2.0.0"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.3"
+  }
+}
