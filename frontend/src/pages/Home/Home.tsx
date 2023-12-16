@@ -13,21 +13,11 @@ const Home = () => {
     const [filteredData, setFilteredData] = useState<any[]>([]);
 
     const handleFileUpload = async (file: File) => {
-        try {
-            const response = await uploadFile(file);
-            console.log(response.message);
-        } catch (error) {
-            console.error('Error during file upload:', error);
-        }
+        await uploadFile(file);
     };
 
     const clearData = async () => {
-        try {
-            const response = await clearDataOnServer();
-            console.log(response);
-        } catch (error) {
-            console.error('Error:', error);
-        }
+        await clearDataOnServer();
     };
 
     const handleSearch = async (query: string) => {

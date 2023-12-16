@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 const API_URL = 'http://localhost:3000';
 
 const handleResponse = async (response: Response) => {
@@ -5,19 +7,26 @@ const handleResponse = async (response: Response) => {
         const errorText = await response.text();
         throw new Error(errorText || 'Service error');
     }
+
     return response.json();
 };
 
 export const uploadFile = async (file: File) => {
-    const formData = new FormData();
-    formData.append('file', file);
+    try {
+        const formData = new FormData();
+        formData.append('file', file);
 
-    const response = await fetch(`${API_URL}/api/files`, {
-        method: 'POST',
-        body: formData,
-    });
+        const response = await fetch(`${API_URL}/api/files`, {
+            method: 'POST',
+            body: formData,
+        });
 
-    return handleResponse(response);
+        const result = await handleResponse(response);
+        toast.success(result.message);
+    } catch (error) {
+        toast.error('File upload failed.');
+        throw error; // Propagar o erro se necessário ou lidar com ele aqui
+    }
 };
 
 export const searchData = async (query: string) => {
@@ -32,11 +41,11 @@ export const clearDataOnServer = async () => {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to clear data');
+            toast.error('Failed to clear data');
         }
 
         const result = await response.json();
-        console.log(result.message);
+        toast.success(result.message);
     } catch (error) {
         console.error('Error:', error);
     }
