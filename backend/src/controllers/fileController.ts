@@ -28,4 +28,8 @@ export class FileController {
             }        
         }
     };
+
+    public clearData = () => {
+        this.fileService.clearData();
+    };
 }
