@@ -1,6 +1,4 @@
-### Shaw and Partners Test `README.md`
-
-# CSV Data Viewer
+# Shaw and Partners Test
 
 This is a complete project for the uploading, viewing, and filtering data from CSV files.
 
