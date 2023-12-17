@@ -7,7 +7,8 @@ import multer from 'multer';
 const router = Router();
 const fileController = new FileController();
 
-const upload = multer({ dest: 'uploads/' });
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 router.post('/api/files', upload.single('file'), (req: Request, res: Response) => {
     fileController.uploadFile(req as MulterRequest, res);

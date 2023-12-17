@@ -8,8 +8,6 @@ import { corsMiddleware } from './middlewares/corsMiddleware';
 
 const app = express();
 
-console.log('aqui')
-
 app.use(corsMiddleware);
 app.use(express.json());
 
