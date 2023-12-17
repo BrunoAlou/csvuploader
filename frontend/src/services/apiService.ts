@@ -23,9 +23,10 @@ export const uploadFile = async (file: File) => {
 
         const result = await handleResponse(response);
         toast.success(result.message);
+        return true;
     } catch (error) {
         toast.error('File upload failed.');
-        throw error; // Propagar o erro se necessário ou lidar com ele aqui
+        return false;
     }
 };
 
@@ -42,11 +43,14 @@ export const clearDataOnServer = async () => {
 
         if (!response.ok) {
             toast.error('Failed to clear data');
+            return false;
         }
 
         const result = await response.json();
         toast.success(result.message);
+        return true;
     } catch (error) {
+        return false;
         console.error('Error:', error);
     }
 };

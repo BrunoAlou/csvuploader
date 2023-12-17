@@ -1,17 +1,14 @@
 import { FileController } from '../src/controllers/fileController';
 import { Request, Response } from 'express';
-import { MulterRequest } from '../src/controllers/fileController'; // Supondo que você exportou isso do seu controller
-import stream from 'stream'; // Importe o módulo stream
+import { MulterRequest } from '../src/controllers/fileController';
+import stream from 'stream'; 
 
-// Função mock para criar um Request do Express
 const mockRequest = (file: Express.Multer.File): MulterRequest => {
   return {
     file,
-    // Adicione aqui quaisquer outras propriedades necessárias para o Request
-  } as MulterRequest; // Assegure que o mock corresponda à interface MulterRequest
+  } as MulterRequest; 
 };
 
-// Função mock para criar um Response do Express
 const mockResponse = (): Response => {
   const res = {} as Response;
   res.status = jest.fn().mockReturnValue(res);

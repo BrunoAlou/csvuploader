@@ -11,13 +11,22 @@ import './Home.css';
 const Home = () => {
     const [data, setData] = useState<any[]>([]);
     const [filteredData, setFilteredData] = useState<any[]>([]);
+    const [isFileUploaded, setIsFileUploaded] = useState(false);
 
     const handleFileUpload = async (file: File) => {
-        await uploadFile(file);
+        const uploadStatus = await uploadFile(file);
+        if (uploadStatus) {
+            setIsFileUploaded(uploadStatus); 
+        } else {
+            setIsFileUploaded(uploadStatus); 
+        }
     };
 
     const clearData = async () => {
-        await clearDataOnServer();
+        const clearStatus = await clearDataOnServer();
+        if (clearStatus) {
+            setIsFileUploaded(!clearStatus); 
+        }
     };
 
     const handleSearch = async (query: string) => {
@@ -39,8 +48,12 @@ const Home = () => {
                 onFileUpload={handleFileUpload} 
                 onClearData={clearData} 
             />            
-            <SearchBarComponent onSearch={handleSearch} />
-            <DataDisplayComponent data={filteredData} />
+            {isFileUploaded && (
+                <>
+                    <SearchBarComponent onSearch={handleSearch} />
+                    <DataDisplayComponent data={filteredData} />
+                </>
+            )}
         </div>
     );
 };
