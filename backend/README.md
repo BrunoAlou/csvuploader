@@ -1,7 +1,6 @@
 
-### Backend `README.md`
+### Backend
 
-```markdown
 # Backend for CSV Data Viewer
 
 This project is the backend of a CSV data visualization application.
