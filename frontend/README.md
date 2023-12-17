@@ -31,7 +31,7 @@ $ npm install
 
 # Run the project
 $ npm start
-
+```
 ## Autor
 
 <a href="https://www.linkedin.com/in/brunoalou/" target=”_blank”>
