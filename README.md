@@ -1,4 +1,4 @@
-# Shaw and Partners Test
+# CSV Uploader
 
 This is a complete project for the uploading, viewing, and filtering data from CSV files.
 
