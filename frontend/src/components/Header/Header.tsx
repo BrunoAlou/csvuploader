@@ -4,7 +4,7 @@ import './Header.css';
 const Header = () => {
     return (
         <header className='header'>
-            <h1>Shaw and Partners - CSV Uploader</h1>
+            <h1>CSV Data Viewer</h1>
             {}
         </header>
     );
