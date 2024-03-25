@@ -1,4 +1,4 @@
-# CSV Uploader
+# CSV Data Viewer
 
 This is a complete project for the uploading, viewing, and filtering data from CSV files.
 
