@@ -31,8 +31,13 @@ export const uploadFile = async (file: File) => {
 };
 
 export const searchData = async (query: string) => {
-    const response = await fetch(`${API_URL}/api/users?q=${query}`);
-    return handleResponse(response);
+    if(query === ""){
+        const response = await fetch(`${API_URL}/api/getdata`);
+        return handleResponse(response);
+    }else{
+        const response = await fetch(`${API_URL}/api/users?q=${query}`);
+        return handleResponse(response);
+    }
 };
 
 export const clearDataOnServer = async () => {
@@ -50,7 +55,6 @@ export const clearDataOnServer = async () => {
         toast.success(result.message);
         return true;
     } catch (error) {
-        return false;
         console.error('Error:', error);
     }
 };

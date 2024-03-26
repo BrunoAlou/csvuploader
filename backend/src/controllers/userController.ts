@@ -17,7 +17,6 @@ export class UserController {
 
             res.status(200).json({ data: results });
         } catch (error) {
-            // Tratamento de erros
         }
     }
 }

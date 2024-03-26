@@ -1,11 +1,4 @@
-// fileModel.ts
-
-export interface CSVFile {
-    name: string;
-    city: string;
-    country: string;
-    favoriteSport: string;
-}
+export type CSVFile = Record<string, unknown>;
 
 export class FileModel {
 }

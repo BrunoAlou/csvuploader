@@ -9,7 +9,6 @@ import { uploadFile, searchData, clearDataOnServer } from '../../services/apiSer
 import './Home.css';
 
 const Home = () => {
-    const [data, setData] = useState<any[]>([]);
     const [filteredData, setFilteredData] = useState<any[]>([]);
     const [isFileUploaded, setIsFileUploaded] = useState(false);
 
@@ -30,10 +29,6 @@ const Home = () => {
     };
 
     const handleSearch = async (query: string) => {
-        if (!query) {
-            setFilteredData(data);
-            return;
-        }
         try {
             const result = await searchData(query);
             setFilteredData(result.data || []);
@@ -50,7 +45,7 @@ const Home = () => {
             />            
             {isFileUploaded && (
                 <>
-                    <SearchBarComponent onSearch={handleSearch} />
+                    <SearchBarComponent onSearch={handleSearch}/>
                     <DataDisplayComponent data={filteredData} />
                 </>
             )}
