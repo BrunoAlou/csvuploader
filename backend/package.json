@@ -2,7 +2,7 @@
     "name": "backend-csv-application",
     "version": "1.0.0",
     "description": "Backend for CSV file processing web application",
-    "main": "index.js",
+    "main": "index.ts",
     "engines": {
         "node": "20.x"
     },
